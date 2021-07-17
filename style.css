@@ -5,15 +5,7 @@
     width: 50%;
 }
 
-.container {
-
-}
-/* 
-img {
-    width: 200px;
-    height: 120px; 
-} */
 
 body {
-    background-color gray;
+    font-family: 'Handlee', cursive;
 }
