@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
    console.log(elems);
  });
 
+ 
+
  var inputForm = document.querySelector('#search-form');
 
 function handleSearchFormSubmit(event) {
