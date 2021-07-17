@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 var inputForm = document.querySelector('#search-form');
 inputForm.addEventListener('submit', handleSearchFormSubmit);
 
-
+// CONTROL FLOW OF APP
 function handleSearchFormSubmit(event) {
   console.log(`button works`)
   event.preventDefault();
@@ -20,7 +20,11 @@ function handleSearchFormSubmit(event) {
   fetchAztroData(aztroURL)
   .then(function(aztroData){
     console.log(aztroData);
-    clearGifs();
+    let horoscope = aztroData.description;
+    let mood = aztroData.mood;
+    document.getElementById('daily-horoscope').textContent = horoscope;
+    document.getElementById('mood-text').textContent = mood;
+    console.log(horoscope);
     let giphyURL = createGiphyFetchUrl(aztroData.mood)
     fetchGiphyData(giphyURL);
     }
@@ -53,29 +57,7 @@ return fetch(aztroURL, {
 }
 //*****END ACCESS HOROSCOPE LOGIC****
 
-
-
-//****BEGIN GENERATE GIF LOGIC****
-function clearGifs() {
-let previousGifsHTMLCollection = document.querySelector('#mood').children;
-  for (let i = previousGifsHTMLCollection.length -1; i >= 0; i--) {
-    previousGifsHTMLCollection[i].remove();
-  }
-}
-
-
-// async function renderGifs(){
-//     console.log(`renderMemes FIRED`)
-//     let userInputSign = captureUserInput();
-//     fetchGiphyAPIResults(userInputSign);
-// }
-
-
-// function captureUserInput() {
-//     console.log(`captureUserInput FIRED`)
-//     let userInputSign = document.querySelector(`#sign`).value;
-//     return userInputSign;
-// }
+//*****UPDATE GIFS******
 
 function createGiphyFetchUrl(userInputSign){
   let giphyAPIKey = `DZltucdua4H0cmMrv8M5wNuJ1Dlf74Ci`;
@@ -89,6 +71,7 @@ function fetchGiphyData(giphyURL) {
       .then( data => {
           //actual gif entries minus irrelevant metadata
           let gifObjectArray = data.data;
+          console.log(gifObjectArray);
           let randomizer = Math.floor(Math.random() * gifObjectArray.length);
           console.log(`The randomizer value is: ${randomizer}`);
           let gifObjectEntry = gifObjectArray[randomizer];
@@ -97,10 +80,10 @@ function fetchGiphyData(giphyURL) {
             let imageOptions = gifObjectEntry.images;
             let imageURL = imageOptions.original.url;
               //create and append img El to page
-              let imageEl = document.createElement(`img`);
-              let gifEl = document.querySelector('#mood');
+              let imageEl = document.getElementById('mood-gif');
+                console.log(imageEl)
               imageEl.setAttribute('src', imageURL);
-              gifEl.appendChild(imageEl);
+
       }
     )
   }
