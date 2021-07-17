@@ -14,56 +14,58 @@
 </head>
 
 <body>
-  <div id="logo">
-    <img src="image.png" alt="Star logo" class="center">
-  </div>
-  <div class="container">
 
-    <h3 class="text-center">Select your sign</h3>
-    <div class="row">
-      <form class="col s12">
-        <div class="row">
-          <div class="input-field col s6">
-            <input placeholder="First Name" id="first_name" type="text" class="validate">
-            <label for="first_name"></label>
-          </div>
-
-
-
-        </div>
+  <section>
+    <div class=>
+    <div class="container">
+        <img src="logo.png" class="center" width="200" height="200">
+        <h2>Find your daily horoscope and meme!</h2>
     </div>
+    </div>
+</section>
 
-      <div class="input-field col s12 m6 purple lighten-4">
-        <select class="icons">
-          <option value="" disabled selected>Choose your horoscope</option>
-          <option value="" data-icon= src = "capicorn.png">Capricorn</option>
-          <option value="" data-icon="images/office.jpg">Aquarius</option>
-          <option value="" data-icon="images/yuna.jpg">Pisces</option>
-          <option value="" data-icon="images/yuna.jpg">Aries</option>
-          <option value="" data-icon="images/yuna.jpg">Taurus</option>
-          <option value="" data-icon="images/yuna.jpg">Gemini</option>
-          <option value="" data-icon="images/yuna.jpg">Cancer</option>
-          <option value="" data-icon="images/yuna.jpg">Leo</option>
-          <option value="" data-icon="images/yuna.jpg">Virgo</option>
-          <option value="" data-icon="images/yuna.jpg">Libra</option>
-          <option value="" data-icon="images/yuna.jpg">Scorpio</option>
-          <option value="" data-icon="images/yuna.jpg">Sagittarius</option>
 
-        </select>
-        <label>Images in select</label>
-      </div>
 
-      <div class="input-field col s12 m6 purple lighten-4">
-        <select class="icons">
-          <option value="" disabled selected>Pick a day</option>
-          <option value="" data-icon="brightness_4" class="left">Yesterday</option>
-          <option value="" data-icon="images/office.jpg" class="left">Today</option>
-          <option value="" data-icon="images/yuna.jpg" class="left">Tomorrow</option>
-        </select>
-        <label>Images in select</label>
-      </div>
+<div class="container">
+  <div class="input-field col s12 m6 purple lighten-4">
+    
+   
 
-    <div class="row">
+  
+<form id="search-form" class="form w-100">
+  
+  <select id="day-input" class="form-input w-100">
+    <option value="" disabled selected>Select a day...</option>
+    <option value="today">Today</option>
+    <option value="tomorrow">Tomorrow</option>
+    <option value="yesterday">Yesterday</option>
+  </select>
+
+  <select id="sign-input" class="form-input w-100 icons">
+    <option value="" disabled selected>Choose your sign...</option>
+    <option value="Capricorn" data-icon= src = "capicorn.png">Capricorn</option>
+    <option value="Aquarius" data-icon="images/office.jpg">Aquarius</option>
+    <option value="Pisces" data-icon="images/yuna.jpg">Pisces</option>
+    <option value="Aries" data-icon="images/yuna.jpg">Aries</option>
+    <option value="Taurus" data-icon="images/yuna.jpg">Taurus</option>
+    <option value="Gemini" data-icon="images/yuna.jpg">Gemini</option>
+    <option value="Cancer" data-icon="images/yuna.jpg">Cancer</option>
+    <option value="Leo" data-icon="images/yuna.jpg">Leo</option>
+    <option value="Virgo" data-icon="images/yuna.jpg">Virgo</option>
+    <option value="Libra" data-icon="images/yuna.jpg">Libra</option>
+    <option value="Scorpio" data-icon="images/yuna.jpg">Scorpio</option>
+    <option value="Sagittarius" data-icon="images/yuna.jpg">Sagittarius</option>
+  </select>
+
+  <button class="center btn waves-effect waves-light" type="submit" name="action">Submit
+    <i class="material-icons right"></i>
+  </button>
+
+</form>
+</div>
+</div>
+
+    <div class="row center">
       <div id="horoscope" class="col s6">Horoscope here</div>
       <div id="joke" class="col s6">Joke here</div>
 
