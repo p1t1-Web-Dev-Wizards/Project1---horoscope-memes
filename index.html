@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your daily horoscope and joke</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="./assets/style.css">
 </head>
@@ -16,63 +16,60 @@
 <body>
 
   <section>
-    <div class=>
-    <div class="container">
+      <div class="container">
         <img src="./assets/images/logo.PNG" class="center" width="200" height="200">
         <h2>Find your daily horoscope and meme!</h2>
+      </div>
+  </section>
+
+  <div class="row" id="input-fields">
+    <div class="input-field col s6" id="user-input">
+      <form id="search-form" class="form w-100 col s12">
+        <select id="day-input" class="form-input w-100">
+          <option value="" disabled selected>Select a day...</option>
+          <option value="today">Today</option>
+          <option value="tomorrow">Tomorrow</option>
+          <option value="yesterday">Yesterday</option>
+        </select>
+      </form>
     </div>
+
+      <div class="input-field col s6" id="user-input">
+        <select id="sign-input" class="form-input w-100 col s12 icons">
+          <option value="" disabled selected>Choose your sign...</option>
+          <option value="Capricorn" data-icon="">Capricorn<img src="./assets/images/capricorn.png" alt="capricorn">
+          </option>
+          <option value="Aquarius" data-icon="images/office.jpg">Aquarius</option>
+          <option value="Pisces" data-icon="images/yuna.jpg">Pisces</option>
+          <option value="Aries" data-icon="images/yuna.jpg">Aries</option>
+          <option value="Taurus" data-icon="images/yuna.jpg">Taurus</option>
+          <option value="Gemini" data-icon="images/yuna.jpg">Gemini</option>
+          <option value="Cancer" data-icon="images/yuna.jpg">Cancer</option>
+          <option value="Leo" data-icon="images/yuna.jpg">Leo</option>
+          <option value="Virgo" data-icon="images/yuna.jpg">Virgo</option>
+          <option value="Libra" data-icon="images/yuna.jpg">Libra</option>
+          <option value="Scorpio" data-icon="images/yuna.jpg">Scorpio</option>
+          <option value="Sagittarius" data-icon="images/yuna.jpg">Sagittarius</option>
+        </select>
+      </div>
     </div>
-</section>
-
-
-
-<div class="container">
-  <div class="input-field col s12 m6">
-    
-   
-
   
-<form id="search-form" class="form w-100">
-  
-  <select id="day-input" class="form-input w-100">
-    <option value="" disabled selected>Select a day...</option>
-    <option value="today">Today</option>
-    <option value="tomorrow">Tomorrow</option>
-    <option value="yesterday">Yesterday</option>
-  </select>
-
-  <select id="sign-input" class="form-input w-100 icons">
-    <option value="" disabled selected>Choose your sign...</option>
-    <option value="Capricorn" data-icon="src=./assets/images/capricorn.png">Capricorn</option>
-    <option value="Aquarius" data-icon="images/office.jpg">Aquarius</option>
-    <option value="Pisces" data-icon="images/yuna.jpg">Pisces</option>
-    <option value="Aries" data-icon="images/yuna.jpg">Aries</option>
-    <option value="Taurus" data-icon="images/yuna.jpg">Taurus</option>
-    <option value="Gemini" data-icon="images/yuna.jpg">Gemini</option>
-    <option value="Cancer" data-icon="images/yuna.jpg">Cancer</option>
-    <option value="Leo" data-icon="images/yuna.jpg">Leo</option>
-    <option value="Virgo" data-icon="images/yuna.jpg">Virgo</option>
-    <option value="Libra" data-icon="images/yuna.jpg">Libra</option>
-    <option value="Scorpio" data-icon="images/yuna.jpg">Scorpio</option>
-    <option value="Sagittarius" data-icon="images/yuna.jpg">Sagittarius</option>
-  </select>
-
-  <button class="center btn waves-effect waves-light" type="submit" name="action">Submit
+  <button class="center btn waves-effect waves-light" type="submit" name="action">Get your meme 
     <i class="material-icons right"></i>
   </button>
 
-</form>
-</div>
-</div>
+  </form>
+  </div>
+  </div>
 
-    <div class="row center">
-      <div id="horoscope" class="col s6">
-        <h4>Your daily horoscope</h4>
-        <p id="daily-horoscope"></p>
-      </div>
-      <div id="mood" class="col s6"> 
-        <h4 id="mood-text">Mood of the Day</h4>
-        <img id="mood-gif" class="center" src="https://media1.giphy.com/media/2zoCCulxZ4bTlGl5I1/giphy.gif?cid=0b1c0317qj06yhohz5jscxi901pdinemr512opewufquj4f4&amp;rid=giphy.gif&amp;ct=g">
+  <div class="row center">
+    <div id="horoscope" class="col s6">
+      <h4>Your daily horoscope</h4>
+      <p id="daily-horoscope"></p>
+    </div>
+    <div id="mood" class="col s6">
+      <h4 id="mood-text">Mood of the Day</h4>
+      <!-- <img id="mood-gif" class="center" src="./assets/images/anticipation.jpeg"> -->
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
