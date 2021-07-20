@@ -52,30 +52,41 @@
           <option value="Sagittarius" data-icon="images/yuna.jpg">Sagittarius</option>
         </select>
       </div>
-  </div>
+    </div>
+    
+    <a class="center btn waves-effect waves-light" id="submit" name="action" href="#save">Submit
+      <i class="material-icons right"></i>
+    </a>
+    <p class="center">**OR**</p>
+    <div class="input-field col s6 center">
+      <select>
+        <option value="" disabled selected>Choose a previous saved horoscope to load</option>
+        <!-- saved horoscope links will go here -->
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+        <option value="3">Option 3</option>
+      </select>
+      <!-- <label>Materialize Select</label> -->
+    </div>
 
-  <a class="center btn waves-effect waves-light" id="submit" name="action" href="#save">Submit
-    <i class="material-icons right"></i>
-  </a>
-
-<br>
-
-  <div class="divider"></div>
-
-<br>
-
-<!-- *******BEGIN PRELOADER SPINNER******* -->
-<br>
-<div class="preloader-position-wrapper hidden">
-  <div class="preloader-wrapper big active">
-    <div class="spinner-layer spinner-blue">
-      <div class="circle-clipper left">
-        <div class="circle"></div>
-      </div><div class="gap-patch">
-        <div class="circle"></div>
-      </div><div class="circle-clipper right">
-        <div class="circle"></div>
-      </div>
+    <br>
+    
+    <div class="divider"></div>
+    
+    <br>
+    
+    <!-- *******BEGIN PRELOADER SPINNER******* -->
+    <br>
+    <div class="preloader-position-wrapper hidden">
+      <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
     </div>
 
     <div class="spinner-layer spinner-red">
@@ -113,6 +124,7 @@
 
 
 
+
   <div id="results-display" class="hidden">
     <h2 id="sign-banner" class="center">PISCES</h2>
     <div class="row center">
@@ -128,7 +140,7 @@
   <a id="save" class="btn waves-effect waves-light red lighten-1">
     <i class="material-icons">Save This Result</i>
   </a>
-  
+</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"

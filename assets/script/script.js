@@ -152,32 +152,34 @@ class horoscopeSaveObject {
 }
 
 function saveResults() {
-  persistResultsToLocalStorage()
-  renderSavedEntryButton()
+  let saveObject = captureResults();
+  let saveObjectKey = saveResultsToLocalStorage(saveObject);
+  renderSavedEntryButton(saveObjectKey);
 }
 
-function persistResultsToLocalStorage() {
+
+function captureResults() {
   console.log(`saveResult FIRED`);
-  let starSign = document.querySelector(`#sign-banner`).textContent;
-  let date = moment().format(`dddd, MMMM Do YYYY`);
-  let horoscope = document.querySelector(`#daily-horoscope`).textContent;
-  let imgUrl = document.querySelector(`#mood-gif`).src;
+    let starSign = document.querySelector(`#sign-banner`).textContent;
+    let date = moment().format(`dddd, MMMM Do YYYY`);
+    let horoscope = document.querySelector(`#daily-horoscope`).textContent;
+    let imgUrl = document.querySelector(`#mood-gif`).src;
 
-  let saveObject = new horoscopeSaveObject(starSign, date, horoscope, imgUrl);
-  let saveObjectKey = `${starSign}-${date}`;
 
-  localStorage.setItem(saveObjectKey, JSON.stringify(saveObject));
+    return new horoscopeSaveObject(starSign, date, horoscope, imgUrl);
 
-  
-  console.log(saveObjectKey)
-  console.log(saveObject)
-  
-  // console.log(starSign)
-  // console.log(date)
-  // console.log(horoscope)
-  // console.log(imgUrl)
+
+}
+
+function saveResultsToLocalStorage(saveObject) {
+  console.log(`saveResultsToLocalStorage FIRED`)
+  let saveObjectKey = `${saveObject.starSign} - ${saveObject.date}`;
+  console.log(saveObjectKey);
+    localStorage.setItem(saveObjectKey, JSON.stringify(saveObject));
+return saveObjectKey
 }
 
 function renderSavedEntryButton() {
+  console.log(`renderSavedEntryButton FIRED`)
 
 }
