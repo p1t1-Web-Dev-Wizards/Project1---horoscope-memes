@@ -6,6 +6,18 @@
     text-align: center;
 }
 
+.container {
+    text-align: center;
+}
+#input-fields {
+    display: flex;
+    padding: 0 15em;
+}
+#user-input {
+    justify-content: space-between;
+    margin-left: 0;
+}
+
 body {
     font-family: 'Handlee', cursive;
 }
