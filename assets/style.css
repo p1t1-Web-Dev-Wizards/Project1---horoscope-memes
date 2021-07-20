@@ -2,8 +2,23 @@
     display:block;
     margin-left:auto;
     margin-right:auto;
-    width: 50%;
+    /* width: 50%; */
     text-align: center;
+}
+.container {
+    text-align: center;
+}
+
+#input-fields {
+    display: flex;
+    padding: 0 20em;
+
+}
+
+#user-input {
+    justify-content: space-between;
+    margin-left: 0;
+    
 }
 
 body {
