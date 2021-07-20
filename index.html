@@ -43,7 +43,7 @@
 
   <select id="sign-input" class="form-input w-100 icons">
     <option value="" disabled selected>Choose your sign...</option>
-    <option value="Capricorn" data-icon="src=./assets/images/capricorn.png">Capricorn</option>
+    <option value="Capricorn" data-icon="" src=>Capricorn</option>
     <option value="Aquarius" data-icon="images/office.jpg">Aquarius</option>
     <option value="Pisces" data-icon="images/yuna.jpg">Pisces</option>
     <option value="Aries" data-icon="images/yuna.jpg">Aries</option>
@@ -57,23 +57,30 @@
     <option value="Sagittarius" data-icon="images/yuna.jpg">Sagittarius</option>
   </select>
 
-  <button class="center btn waves-effect waves-light" type="submit" name="action">Submit
+  <a class="center btn waves-effect waves-light" id="submit" name="action" href="#save">Submit
     <i class="material-icons right"></i>
-  </button>
+  </a>
 
 </form>
 </div>
 </div>
-
+<div class="divider"></div>
+  <div id="results-display">
+    <h2 id="sign-banner" class="center">PISCES</h2>
     <div class="row center">
       <div id="horoscope" class="col s6">
         <h4>Your daily horoscope</h4>
         <p id="daily-horoscope"></p>
       </div>
       <div id="mood" class="col s6"> 
-        <h4 id="mood-text">Mood of the Day</h4>
+        <h4>Mood of the Day: <span id="mood-text"></span></h4>
         <img id="mood-gif" class="center" src="https://media1.giphy.com/media/2zoCCulxZ4bTlGl5I1/giphy.gif?cid=0b1c0317qj06yhohz5jscxi901pdinemr512opewufquj4f4&amp;rid=giphy.gif&amp;ct=g">
     </div>
+  </div>
+  <a id="save" class="btn waves-effect waves-light red lighten-1">
+    <i class="material-icons">Save This Result</i>
+  </a>
+  
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
