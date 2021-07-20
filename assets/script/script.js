@@ -7,8 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 let submitButton = document.querySelector('#submit');
+let saveButton = document.querySelector('#save');
 
 submitButton.addEventListener('click', handleSearchFormSubmit)
+saveButton.addEventListener('click', saveResult)
 
 // var inputForm = document.querySelector('#search-form');
 // inputForm.addEventListener('submit', handleSearchFormSubmit);
@@ -17,6 +19,7 @@ submitButton.addEventListener('click', handleSearchFormSubmit)
 function handleSearchFormSubmit(event) {
   console.log(`button works`)
   // event.preventDefault();
+  showResultsTransition();
   var dayInput = document.querySelector('#day-input').value;
   var signInput = document.querySelector('#sign-input').value;
   let yourSignBanner = document.querySelector(`#sign-banner`);
@@ -93,3 +96,46 @@ function fetchGiphyData(giphyURL) {
     )
   }
 //****END GENERATING GIFS****
+
+// submit-results transition
+
+function timeOut(fn, ms){
+  console.log('TIMEOUT FIRED')
+  return new Promise(resolve => 
+    setTimeout(()=> {
+      fn();
+      resolve();
+    }, ms));
+  }
+
+async function showResultsTransition() {
+  console.log(`showResultsTransition FIRED`);
+
+    //assign elements variable names for readability
+    let spinner = document.querySelector(`.preloader-position-wrapper`);
+    let resultsSection = document.querySelector(`#results-display`);
+
+    //hide results if doing multiple searches in one session
+      if (!resultsSection.classList.contains(`hidden`)){
+        resultsSection.classList.add(`hidden`)
+      }
+
+    //show and scroll to the spinner
+    spinner.classList.remove(`hidden`);
+    // spinner.scroll({behavior: `smooth`})
+    spinner.scrollIntoView()
+
+    //wait two seconds then hide spinner --> reveal results --> scroll to bottom of page
+      await timeOut(() => {document.querySelector(`.preloader-position-wrapper`).classList.add(`hidden`)}, 2000);
+    resultsSection.classList.remove(`hidden`)
+    window.scrollTo(0,document.body.scrollHeight);
+}
+
+console.log(document.body)
+
+//****BEGIN SAVE THE INFO ****
+
+function saveResult() {
+  console.log(`saveResult FIRED`);
+
+}

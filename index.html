@@ -7,34 +7,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your daily horoscope and joke</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
-
   <section>
     <div class=>
-    <div class="container">
-        <img src="./assets/images/logo.PNG" class="center" width="200" height="200">
-        <h2>Find your daily horoscope and meme!</h2>
+      <div class="container">
+          <img src="./assets/images/logo.PNG" class="center" width="200" height="200">
+          <h2>Find your daily horoscope and meme!</h2>
+      </div>
     </div>
-    </div>
-</section>
+  </section>
 
-<div class="row" id="input-fields">
-    <div class="input-field col s6" id="user-input">
-      <form id="search-form" class="form w-100 col s12">
-        <select id="day-input" class="form-input w-100">
-          <option value="" disabled selected>Select a day...</option>
-          <option value="today">Today</option>
-          <option value="tomorrow">Tomorrow</option>
-          <option value="yesterday">Yesterday</option>
-        </select>
-      </form>
-    </div>
+  <div class="row" id="input-fields">
+      <div class="input-field col s6" id="user-input">
+        <form id="search-form" class="form w-100 col s12">
+          <select id="day-input" class="form-input w-100">
+            <option value="" disabled selected>Select a day...</option>
+            <option value="today">Today</option>
+            <option value="tomorrow">Tomorrow</option>
+            <option value="yesterday">Yesterday</option>
+          </select>
+        </form>
+      </div>
       <div class="input-field col s6" id="user-input">
         <select id="sign-input" class="form-input w-100 col s12 icons">
           <option value="" disabled selected>Choose your sign...</option>
@@ -53,17 +52,68 @@
           <option value="Sagittarius" data-icon="images/yuna.jpg">Sagittarius</option>
         </select>
       </div>
-    </div>
+  </div>
 
   <a class="center btn waves-effect waves-light" id="submit" name="action" href="#save">Submit
     <i class="material-icons right"></i>
   </a>
 
-</form>
+
+  
+  <div class="divider"></div>
+
+
+
+<!-- *******BEGIN PRELOADER SPINNER******* -->
+<br>
+<div class="preloader-position-wrapper hidden">
+  <div class="preloader-wrapper big active">
+    <div class="spinner-layer spinner-blue">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+
+    <div class="spinner-layer spinner-red">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+
+    <div class="spinner-layer spinner-yellow">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+
+    <div class="spinner-layer spinner-green">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-<div class="divider"></div>
-  <div id="results-display">
+<!-- *******END PRELOADER SPINNER******* -->
+
+
+
+  <div id="results-display" class="hidden">
     <h2 id="sign-banner" class="center">PISCES</h2>
     <div class="row center">
       <div id="horoscope" class="col s6">
