@@ -6,16 +6,21 @@ document.addEventListener('DOMContentLoaded', function() {
  });
 
 
+let submitButton = document.querySelector('#submit');
 
-var inputForm = document.querySelector('#search-form');
-inputForm.addEventListener('submit', handleSearchFormSubmit);
+submitButton.addEventListener('click', handleSearchFormSubmit)
+
+// var inputForm = document.querySelector('#search-form');
+// inputForm.addEventListener('submit', handleSearchFormSubmit);
 
 // CONTROL FLOW OF APP
 function handleSearchFormSubmit(event) {
   console.log(`button works`)
-  event.preventDefault();
+  // event.preventDefault();
   var dayInput = document.querySelector('#day-input').value;
   var signInput = document.querySelector('#sign-input').value;
+  let yourSignBanner = document.querySelector(`#sign-banner`);
+    yourSignBanner.textContent = signInput;
   let aztroURL = createAztroFetchUrl(signInput, dayInput);
   fetchAztroData(aztroURL)
   .then(function(aztroData){

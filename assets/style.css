@@ -34,3 +34,11 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+#save {
+    margin: 20px auto;
+}
