@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="./assets/style.css">
 </head>
@@ -125,7 +126,7 @@
 
 
 
-  <div id="results-display" class="hidden">
+  <div id="results-display" class="">
     <h2 id="sign-banner" class="center">PISCES</h2>
     <div class="row center">
       <div id="horoscope" class="col s6">
@@ -137,9 +138,22 @@
         <img id="mood-gif" class="center" src="https://media1.giphy.com/media/2zoCCulxZ4bTlGl5I1/giphy.gif?cid=0b1c0317qj06yhohz5jscxi901pdinemr512opewufquj4f4&amp;rid=giphy.gif&amp;ct=g">
     </div>
   </div>
-  <a id="save" class="btn waves-effect waves-light red lighten-1">
-    <i class="material-icons">Save This Result</i>
-  </a>
+
+  <div class="row">
+    <div class="col s12">
+      <div class="input-field inline">
+        <input id="email_inline" type="email" class="validate">
+        <label for="email_inline">Enter a name to save result</label>
+      </div>
+      <!-- <a id="save" class="btn waves-effect waves-light red lighten-1">
+        <i class="material-icons">Save This Result</i>
+      </a> -->
+      <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+    </div>
+  </div>
+  
+
+
 </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

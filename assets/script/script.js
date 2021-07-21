@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
    var elems = document.querySelectorAll('select');
    var instances = M.FormSelect.init(elems, {});
-
+  
    console.log(elems);
  });
 
@@ -152,8 +152,9 @@ class horoscopeSaveObject {
 }
 
 function saveResults() {
+  let saveObjectKey = document.querySelector(`#sign-banner`)
   let saveObject = captureResults();
-  let saveObjectKey = saveResultsToLocalStorage(saveObject);
+  saveResultsToLocalStorage(saveObject);
   renderSavedEntryButton(saveObjectKey);
 }
 
@@ -164,19 +165,14 @@ function captureResults() {
     let date = moment().format(`dddd, MMMM Do YYYY`);
     let horoscope = document.querySelector(`#daily-horoscope`).textContent;
     let imgUrl = document.querySelector(`#mood-gif`).src;
-
-
-    return new horoscopeSaveObject(starSign, date, horoscope, imgUrl);
-
-
+  return new horoscopeSaveObject(starSign, date, horoscope, imgUrl);
 }
 
 function saveResultsToLocalStorage(saveObject) {
   console.log(`saveResultsToLocalStorage FIRED`)
-  let saveObjectKey = `${saveObject.starSign} - ${saveObject.date}`;
-  console.log(saveObjectKey);
+    let saveObjectKey = `${saveObject.starSign} - ${saveObject.date}`;
+    console.log(saveObjectKey);
     localStorage.setItem(saveObjectKey, JSON.stringify(saveObject));
-return saveObjectKey
 }
 
 function renderSavedEntryButton() {
