@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
    var elems = document.querySelectorAll('select');
    var instances = M.FormSelect.init(elems, {});
+   loadSavedEntriesOnPageLoad()
    M.AutoInit();
    console.log(elems);
  });
@@ -8,9 +9,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 let submitButton = document.querySelector('#submit');
 let saveButton = document.querySelector('#save');
+let loadSelectedEntrydocument =document.querySelector(`#load-selected-entry`);
 
 submitButton.addEventListener('click', handleSearchFormSubmit)
 saveButton.addEventListener('click', saveResults)
+loadSelectedEntrydocument.addEventListener(`click`, loadSelectedEntry)
 
 // var inputForm = document.querySelector('#search-form');
 // inputForm.addEventListener('submit', handleSearchFormSubmit);
@@ -142,11 +145,12 @@ async function showResultsTransition() {
 //****BEGIN SAVE TO LOCAL STORAGE ****
 
 class horoscopeSaveObject {
-  constructor(starSign, date, horoscope, imgUrl){
+  constructor(starSign, date, horoscope, imgUrl, saveObjectKey){
     this.starSign = starSign;
     this.date = date;
     this.horoscope = horoscope;
     this.imgUrl = imgUrl;
+    this.saveObjectKey = saveObjectKey;
   }
 
   load() {
@@ -159,10 +163,10 @@ class horoscopeSaveObject {
 
 function saveResults() {
   let saveObject = captureResults();
-  let saveObjectKey = document.querySelector(`#horoscope-key`).value;
   document.querySelector(`#horoscope-key`).value = "";
-  saveResultsToLocalStorage(saveObjectKey, saveObject);
-  addSavedEntryToOptions(saveObjectKey);
+  saveResultsToLocalStorage(saveObject.saveObjectKey, saveObject);
+  addSavedEntryToOptions(saveObject.saveObjectKey);
+  M.AutoInit();
 };
 
 
@@ -172,7 +176,8 @@ function captureResults() {
     let date = moment().format(`dddd, MMMM Do YYYY`);
     let horoscope = document.querySelector(`#daily-horoscope`).textContent;
     let imgUrl = document.querySelector(`#mood-gif`).src;
-  return new horoscopeSaveObject(starSign, date, horoscope, imgUrl);
+    let saveObjectKey = document.querySelector(`#horoscope-key`).value;
+  return new horoscopeSaveObject(starSign, date, horoscope, imgUrl, saveObjectKey);
 };
 
 
@@ -190,10 +195,51 @@ function saveResultsToLocalStorage(saveObjectKey, saveObject) {
 
 
 function addSavedEntryToOptions(saveObjectKey) {
-  console.log(`renderSavedEntryButton FIRED`);
+  console.log(`%crenderSavedEntryButton FIRED`, `color:limegreen`);
   let savesList = document.querySelector(`#previous-saves`);
+  console.log(savesList);
     let optionEl = document.createElement(`option`);
+      console.log(optionEl);
     optionEl.value = saveObjectKey;
+      console.log(optionEl.value);
     optionEl.textContent = saveObjectKey;
+     console.log(optionEl.textContent);
     savesList.appendChild(optionEl);
+}
+
+console.log(`The number of entries in localStorage is ${localStorage.length}.`)
+
+function loadSavedEntriesOnPageLoad() {
+  for(let saveObjectKey in localStorage){
+    console.log(`${saveObjectKey}: ${localStorage.getItem(saveObjectKey)}`);
+    if(localStorage.getItem(saveObjectKey) === null){
+        console.log(`ENTRY IS NULL`)
+      continue;
+    }
+    addSavedEntryToOptions(saveObjectKey);
+  }
+}
+
+function loadSelectedEntry() {
+  console.log(`loadSelectedEntry FIRED`)
+  let saveObject = retrieveSelectedSaveFromLocalStorage();
+  renderSavedResult(saveObject);
+}
+
+function retrieveSelectedSaveFromLocalStorage() {
+    let saveObjectKey = document.querySelector('#previous-saves').value;
+    let saveObject = JSON.parse(localStorage.getItem(saveObjectKey));
+  return saveObject;
+}
+
+function renderSavedResult(saveObject) {
+  let signBannerEl = document.getElementById('sign-banner');
+  let horoscopeEl = document.getElementById('daily-horoscope');
+  let moodEl = document.getElementById('mood-text');
+  let imageEl = document.getElementById('mood-gif');
+    signBannerEl.textContent = `${saveObject.starSign} from ${saveObject.date}`
+    horoscopeEl.textContent = saveObject.horoscope;
+    moodEl.textContent = saveObject.mood;
+    imageEl.setAttribute('src', saveObject.imgUrl);
+    showResultsTransition();
 }
