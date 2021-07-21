@@ -60,7 +60,7 @@
     </a>
     <p class="center">**OR**</p>
     <div class="input-field col s6 center">
-      <select>
+      <select id="previous-saves">
         <option value="" disabled selected>Choose a previous saved horoscope to load</option>
         <!-- saved horoscope links will go here -->
         <option value="1">Option 1</option>
@@ -142,13 +142,12 @@
   <div class="row">
     <div class="col s12">
       <div class="input-field inline">
-        <input id="email_inline" type="email" class="validate">
-        <label for="email_inline">Enter a name to save result</label>
+        <input id="horoscope-key" type="text">
+        <label id ="horoscope-key-label" for="horoscope-key">Enter a title to save result</label>
       </div>
-      <!-- <a id="save" class="btn waves-effect waves-light red lighten-1">
-        <i class="material-icons">Save This Result</i>
-      </a> -->
-      <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+      <a class="btn-floating btn-large waves-effect waves-light red" id="save">
+        <i class="material-icons">add</i>
+      </a>
     </div>
   </div>
   

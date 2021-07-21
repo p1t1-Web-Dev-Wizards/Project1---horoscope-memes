@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
    var elems = document.querySelectorAll('select');
    var instances = M.FormSelect.init(elems, {});
-  
+   M.AutoInit();
    console.log(elems);
  });
 
@@ -97,7 +97,9 @@ function fetchGiphyData(giphyURL) {
   }
 //****END GENERATING GIFS****
 
-// submit-results transition
+
+
+// *****BEGIN SUBMIT CLICK TRANSITION//LOADER/SCROLL
 
 function timeOut(fn, ms){
   console.log('TIMEOUT FIRED')
@@ -115,25 +117,29 @@ async function showResultsTransition() {
     let spinner = document.querySelector(`.preloader-position-wrapper`);
     let resultsSection = document.querySelector(`#results-display`);
 
-    //hide results if doing multiple searches in one session
+    //hide previous results if doing multiple searches in one session
       if (!resultsSection.classList.contains(`hidden`)){
         resultsSection.classList.add(`hidden`)
       }
 
     //show and scroll to the spinner
     spinner.classList.remove(`hidden`);
-    // spinner.scroll({behavior: `smooth`})
     spinner.scrollIntoView()
 
-    //wait two seconds then hide spinner --> reveal results --> scroll to bottom of page
+    //wait two seconds then hide spinner 
       await timeOut(() => {document.querySelector(`.preloader-position-wrapper`).classList.add(`hidden`)}, 2000);
+
+    // reveal results and scroll to bottom of page
     resultsSection.classList.remove(`hidden`)
     window.scrollTo(0,document.body.scrollHeight);
 }
 
-console.log(document.body)
+// *****END SUBMIT CLICK TRANSITION//LOADER/SCROLL
 
-//****BEGIN SAVE THE INFO ****
+
+
+
+//****BEGIN SAVE TO LOCAL STORAGE ****
 
 class horoscopeSaveObject {
   constructor(starSign, date, horoscope, imgUrl){
@@ -148,15 +154,16 @@ class horoscopeSaveObject {
     document.querySelector(`#daily-horoscope`).textContent = this.horoscope;
     document.querySelector(`#mood-gif`).src = this.imgUrl;
   }
+};
 
-}
 
 function saveResults() {
-  let saveObjectKey = document.querySelector(`#sign-banner`)
   let saveObject = captureResults();
-  saveResultsToLocalStorage(saveObject);
-  renderSavedEntryButton(saveObjectKey);
-}
+  let saveObjectKey = document.querySelector(`#horoscope-key`).value;
+  document.querySelector(`#horoscope-key`).value = "";
+  saveResultsToLocalStorage(saveObjectKey, saveObject);
+  addSavedEntryToOptions(saveObjectKey);
+};
 
 
 function captureResults() {
@@ -166,16 +173,27 @@ function captureResults() {
     let horoscope = document.querySelector(`#daily-horoscope`).textContent;
     let imgUrl = document.querySelector(`#mood-gif`).src;
   return new horoscopeSaveObject(starSign, date, horoscope, imgUrl);
-}
+};
 
-function saveResultsToLocalStorage(saveObject) {
+
+function saveResultsToLocalStorage(saveObjectKey, saveObject) {
   console.log(`saveResultsToLocalStorage FIRED`)
-    let saveObjectKey = `${saveObject.starSign} - ${saveObject.date}`;
-    console.log(saveObjectKey);
+      if(saveObjectKey === "" || saveObjectKey === null) {
+        M.toast({html: 'Please enter a title to reference the result save with', classes: 'red'})
+        document.querySelector(`#horoscope-key-label`).style.color = `red`
+        return;
+      }
+      document.querySelector(`#horoscope-key-label`).style.color = ``
     localStorage.setItem(saveObjectKey, JSON.stringify(saveObject));
-}
+    M.toast({html: `This entry has been saved under option "${saveObjectKey}"`, classes: 'green'})
+};
 
-function renderSavedEntryButton() {
-  console.log(`renderSavedEntryButton FIRED`)
 
+function addSavedEntryToOptions(saveObjectKey) {
+  console.log(`renderSavedEntryButton FIRED`);
+  let savesList = document.querySelector(`#previous-saves`);
+    let optionEl = document.createElement(`option`);
+    optionEl.value = saveObjectKey;
+    optionEl.textContent = saveObjectKey;
+    savesList.appendChild(optionEl);
 }
