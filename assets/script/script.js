@@ -134,7 +134,10 @@ async function showResultsTransition() {
 
     // reveal results and scroll to bottom of page
     resultsSection.classList.remove(`hidden`)
+    document.querySelector(`#horoscope-key-label`).style.color = ``;
+    document.querySelector(`#save-result-card`).style.display = `block`;
     window.scrollTo(0,document.body.scrollHeight);
+    return;
 }
 
 // *****END SUBMIT CLICK TRANSITION//LOADER/SCROLL
@@ -160,17 +163,18 @@ class horoscopeSaveObject {
   }
 };
 
-
+//controlfunction
 function saveResults() {
-  let saveObject = captureResults();
-  document.querySelector(`#horoscope-key`).value = "";
-  saveResultsToLocalStorage(saveObject.saveObjectKey, saveObject);
-  addSavedEntryToOptions(saveObject.saveObjectKey);
+    let saveObject = captureResultValues();
+    document.querySelector(`#horoscope-key`).value = "";
+    saveResultsToLocalStorage(saveObject.saveObjectKey, saveObject);
+    addSavedEntryToOptions(saveObject.saveObjectKey);
+ 
   M.AutoInit();
 };
 
 
-function captureResults() {
+function captureResultValues() {
   console.log(`saveResult FIRED`);
     let starSign = document.querySelector(`#sign-banner`).textContent;
     let date = moment().format(`dddd, MMMM Do YYYY`);
@@ -189,6 +193,7 @@ function saveResultsToLocalStorage(saveObjectKey, saveObject) {
         return;
       }
       document.querySelector(`#horoscope-key-label`).style.color = ``
+      document.querySelector(`#save-result-card`).style.display = `none`;
     localStorage.setItem(saveObjectKey, JSON.stringify(saveObject));
     M.toast({html: `This entry has been saved under option "${saveObjectKey}"`, classes: 'green'})
 };
@@ -220,6 +225,7 @@ function loadSavedEntriesOnPageLoad() {
   }
 }
 
+//control Function
 function loadSelectedEntry() {
   console.log(`loadSelectedEntry FIRED`)
   let saveObject = retrieveSelectedSaveFromLocalStorage();
@@ -232,7 +238,7 @@ function retrieveSelectedSaveFromLocalStorage() {
   return saveObject;
 }
 
-function renderSavedResult(saveObject) {
+async function renderSavedResult(saveObject) {
   let signBannerEl = document.getElementById('sign-banner');
   let horoscopeEl = document.getElementById('daily-horoscope');
   let moodEl = document.getElementById('mood-text');
@@ -241,5 +247,6 @@ function renderSavedResult(saveObject) {
     horoscopeEl.textContent = saveObject.horoscope;
     moodEl.textContent = saveObject.mood;
     imageEl.setAttribute('src', saveObject.imgUrl);
-    showResultsTransition();
+    await showResultsTransition();
+    document.querySelector(`#save-result-card`).style.display = `none`
 }
