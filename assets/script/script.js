@@ -148,8 +148,9 @@ async function showResultsTransition() {
 //****BEGIN SAVE TO LOCAL STORAGE ****
 
 class horoscopeSaveObject {
-  constructor(starSign, date, horoscope, imgUrl, saveObjectKey){
+  constructor(starSign, mood, date, horoscope, imgUrl, saveObjectKey){
     this.starSign = starSign;
+    this.mood = mood;
     this.date = date;
     this.horoscope = horoscope;
     this.imgUrl = imgUrl;
@@ -177,11 +178,12 @@ function saveResults() {
 function captureResultValues() {
   console.log(`saveResult FIRED`);
     let starSign = document.querySelector(`#sign-banner`).textContent;
+    let mood = document.querySelector(`#mood-text`).textContent;
     let date = moment().format(`dddd, MMMM Do YYYY`);
     let horoscope = document.querySelector(`#daily-horoscope`).textContent;
     let imgUrl = document.querySelector(`#mood-gif`).src;
     let saveObjectKey = document.querySelector(`#horoscope-key`).value;
-  return new horoscopeSaveObject(starSign, date, horoscope, imgUrl, saveObjectKey);
+  return new horoscopeSaveObject(starSign, mood, date, horoscope, imgUrl, saveObjectKey);
 };
 
 
@@ -246,6 +248,9 @@ async function renderSavedResult(saveObject) {
     signBannerEl.textContent = `${saveObject.starSign} from ${saveObject.date}`
     horoscopeEl.textContent = saveObject.horoscope;
     moodEl.textContent = saveObject.mood;
+
+    console.log(moodEl)
+    console.log(saveObject.mood)
     imageEl.setAttribute('src', saveObject.imgUrl);
     await showResultsTransition();
     document.querySelector(`#save-result-card`).style.display = `none`
