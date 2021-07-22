@@ -164,16 +164,17 @@ class horoscopeSaveObject {
   }
 };
 
+
+
+
 //controlfunction
 function saveResults() {
     let saveObject = captureResultValues();
     document.querySelector(`#horoscope-key`).value = "";
     saveResultsToLocalStorage(saveObject.saveObjectKey, saveObject);
     addSavedEntryToOptions(saveObject.saveObjectKey);
- 
   M.AutoInit();
 };
-
 
 function captureResultValues() {
   console.log(`saveResult FIRED`);
