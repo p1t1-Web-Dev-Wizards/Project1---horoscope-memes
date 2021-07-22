@@ -1,3 +1,12 @@
+:root {
+    background-color: #5e35b1;
+    color: white;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 .center {
     display:block;
     margin-left:auto;
@@ -6,12 +15,17 @@
     text-align: center;
 }
 
+.logo-image {
+    width: 50%
+}
+
 .container {
     text-align: center;
 }
+
 #input-fields {
     display: flex;
-    padding: 0 15em;
+    padding: 0 20em;
 }
 #user-input {
     justify-content: space-between;
@@ -19,7 +33,7 @@
 }
 
 body {
-    font-family: 'Handlee', cursive;
+    font-family: 'Zen Loop', cursive;;
 }
 
 #mood {

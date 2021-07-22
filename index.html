@@ -8,121 +8,154 @@
   <title>Your daily horoscope and joke</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Loop&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
+
+  <div class="parallax-container">
+    <div class="parallax"><img src="./assets/images/pexels-miriam-espacio-2694037.jpg"></div>
+  </div>
+
   <section>
     <div class=>
-      <div class="container">
-          <img src="./assets/images/logo.PNG" class="center" width="200" height="200">
-          <h2>Find your daily horoscope and meme!</h2>
+      <div class="container logo-image">
+        <img src="./assets/images/Star_Spangled_Memer_Logo-removebg-preview.png" class="center" width="200"
+          height="200">
+        <h2>Find your daily horoscope and meme!</h2>
       </div>
     </div>
   </section>
 
-  <div class="row" id="input-fields">
-      <div class="input-field col s6" id="user-input">
-        <form id="search-form" class="form w-100 col s12">
-          <select id="day-input" class="form-input w-100">
-            <option value="" disabled selected>Select a day...</option>
-            <option value="today">Today</option>
-            <option value="tomorrow">Tomorrow</option>
-            <option value="yesterday">Yesterday</option>
-          </select>
-        </form>
-      </div>
-      <div class="input-field col s6" id="user-input">
-        <select id="sign-input" class="form-input w-100 col s12 icons">
-          <option value="" disabled selected>Choose your sign...</option>
-          <option value="Capricorn" data-icon="">Capricorn<img src="./assets/images/capricorn.png" alt="capricorn">
-          </option>
-          <option value="Aquarius" data-icon="images/office.jpg">Aquarius</option>
-          <option value="Pisces" data-icon="images/yuna.jpg">Pisces</option>
-          <option value="Aries" data-icon="images/yuna.jpg">Aries</option>
-          <option value="Taurus" data-icon="images/yuna.jpg">Taurus</option>
-          <option value="Gemini" data-icon="images/yuna.jpg">Gemini</option>
-          <option value="Cancer" data-icon="images/yuna.jpg">Cancer</option>
-          <option value="Leo" data-icon="images/yuna.jpg">Leo</option>
-          <option value="Virgo" data-icon="images/yuna.jpg">Virgo</option>
-          <option value="Libra" data-icon="images/yuna.jpg">Libra</option>
-          <option value="Scorpio" data-icon="images/yuna.jpg">Scorpio</option>
-          <option value="Sagittarius" data-icon="images/yuna.jpg">Sagittarius</option>
+  <!-- <div class="row" id="input-fields">
+    <div class="input-field col s6" id="user-input">
+      <form id="search-form" class="form w-100 col s12">
+        <select id="day-input" class="form-input w-100">
+          <option value="" disabled selected>Select a day...</option>
+          <option value="today">Today</option>
+          <option value="tomorrow">Tomorrow</option>
+          <option value="yesterday">Yesterday</option>
         </select>
-      </div>
+      </form>
     </div>
-    
-    <a class="center btn waves-effect waves-light" id="submit" name="action" href="#save">Submit
-      <i class="material-icons right"></i>
-    </a>
-    <p class="center">**OR**</p>
-    <div class="input-field col s6 center">
-      <select id="previous-saves">
-        <option value="" disabled selected>Choose a previous saved horoscope to load</option>
-        <!-- saved horoscope links go here -->
+  </section> -->
+
+  <div class="row" id="input-fields">
+    <div class="input-field col s6" id="user-input">
+      <form id="search-form" class="form w-100 col s12">
+        <select id="day-input" class="form-input w-100">
+          <option value="" disabled selected>Select a day...</option>
+          <option value="today">Today</option>
+          <option value="tomorrow">Tomorrow</option>
+          <option value="yesterday">Yesterday</option>
+        </select>
+      </form>
+    </div>
+    <div class="input-field col s6" id="user-input">
+      <select id="sign-input" class="form-input w-100 col s12 icons">
+        <option value="" disabled selected>Choose your sign...</option>
+        <option value="Capricorn" data-icon="">Capricorn<img src="./assets/images/capricorn.png" alt="capricorn">
+        </option>
+        <option value="Aquarius" data-icon="images/office.jpg">Aquarius</option>
+        <option value="Pisces" data-icon="images/yuna.jpg">Pisces</option>
+        <option value="Aries" data-icon="images/yuna.jpg">Aries</option>
+        <option value="Taurus" data-icon="images/yuna.jpg">Taurus</option>
+        <option value="Gemini" data-icon="images/yuna.jpg">Gemini</option>
+        <option value="Cancer" data-icon="images/yuna.jpg">Cancer</option>
+        <option value="Leo" data-icon="images/yuna.jpg">Leo</option>
+        <option value="Virgo" data-icon="images/yuna.jpg">Virgo</option>
+        <option value="Libra" data-icon="images/yuna.jpg">Libra</option>
+        <option value="Scorpio" data-icon="images/yuna.jpg">Scorpio</option>
+        <option value="Sagittarius" data-icon="images/yuna.jpg">Sagittarius</option>
       </select>
-      <a class="btn waves-effect waves-light" id="load-selected-entry">Load Selected Entry</a>
-      <!-- <label>Materialize Select</label> -->
-    </div>
-
-    <br>
-    
-    <div class="divider"></div>
-    
-    <br>
-    
-    <!-- *******BEGIN PRELOADER SPINNER******* -->
-    <br>
-    <div class="preloader-position-wrapper hidden">
-      <div class="preloader-wrapper big active">
-        <div class="spinner-layer spinner-blue">
-          <div class="circle-clipper left">
-            <div class="circle"></div>
-          </div><div class="gap-patch">
-            <div class="circle"></div>
-          </div><div class="circle-clipper right">
-            <div class="circle"></div>
-          </div>
-    </div>
-
-    <div class="spinner-layer spinner-red">
-      <div class="circle-clipper left">
-        <div class="circle"></div>
-      </div><div class="gap-patch">
-        <div class="circle"></div>
-      </div><div class="circle-clipper right">
-        <div class="circle"></div>
-      </div>
-    </div>
-
-    <div class="spinner-layer spinner-yellow">
-      <div class="circle-clipper left">
-        <div class="circle"></div>
-      </div><div class="gap-patch">
-        <div class="circle"></div>
-      </div><div class="circle-clipper right">
-        <div class="circle"></div>
-      </div>
-    </div>
-
-    <div class="spinner-layer spinner-green">
-      <div class="circle-clipper left">
-        <div class="circle"></div>
-      </div><div class="gap-patch">
-        <div class="circle"></div>
-      </div><div class="circle-clipper right">
-        <div class="circle"></div>
-      </div>
     </div>
   </div>
-</div>
-<!-- *******END PRELOADER SPINNER******* -->
+
+  <a class="center btn waves-effect waves-light" id="submit" name="action" href="#save">Submit
+    <i class="material-icons right"></i>
+  </a>
+  <p class="center">**OR**</p>
+  <div class="input-field col s6 center">
+    <select id="previous-saves">
+      <option value="" disabled selected>Choose a previous saved horoscope to load</option>
+      <!-- saved horoscope links go here -->
+    </select>
+    <a class="btn waves-effect waves-light" id="load-selected-entry">Load Selected Entry</a>
+    <!-- <label>Materialize Select</label> -->
+  </div>
+
+  <br>
+
+  <div class="divider"></div>
+
+  <br>
+
+  <!-- *******BEGIN PRELOADER SPINNER******* -->
+  <br>
+  <div class="preloader-position-wrapper hidden">
+    <div class="preloader-wrapper big active">
+      <div class="spinner-layer spinner-blue">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-red">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-yellow">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-green">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="parallax-container">
+      <div class="parallax"><img src="./assets/images/pexels-miriam-espacio-2694037.jpg"></div>
+    </div>
+
+
+  </div>
 
 
 
+  <!-- *******END PRELOADER SPINNER******* -->
 
   <div id="results-display" class="hidden">
     <h2 id="sign-banner" class="center">PISCES</h2>
@@ -131,34 +164,32 @@
         <h4>Your daily horoscope</h4>
         <p id="daily-horoscope"></p>
       </div>
-      <div id="mood" class="col s6"> 
+      <div id="mood" class="col s6">
         <h4>Mood of the Day: <span id="mood-text"></span></h4>
-        <img id="mood-gif" class="center" src="https://media1.giphy.com/media/2zoCCulxZ4bTlGl5I1/giphy.gif?cid=0b1c0317qj06yhohz5jscxi901pdinemr512opewufquj4f4&amp;rid=giphy.gif&amp;ct=g">
-    </div>
-  </div>
-
-  <div class="row center card" id="save-result-card">
-    <div class="col s12">
-      <div class="input-field inline">
-        <input id="horoscope-key" type="text">
-        <label id ="horoscope-key-label" for="horoscope-key">Enter a title to save result</label>
+        <img id="mood-gif" class="center"
+          src="https://media1.giphy.com/media/2zoCCulxZ4bTlGl5I1/giphy.gif?cid=0b1c0317qj06yhohz5jscxi901pdinemr512opewufquj4f4&amp;rid=giphy.gif&amp;ct=g">
       </div>
-      <a class="btn-floating btn-large waves-effect waves-light red" id="save">
-        <i class="material-icons">add</i>
-      </a>
+    </div>
+
+    <div class="row center card" id="save-result-card">
+      <div class="col s12">
+        <div class="input-field inline">
+          <input id="horoscope-key" type="text">
+          <label id="horoscope-key-label" for="horoscope-key">Enter a title to save result</label>
+        </div>
+        <a class="btn-floating btn-large waves-effect waves-light red" id="save">
+          <i class="material-icons">add</i>
+        </a>
+      </div>
     </div>
   </div>
-  
 
-
-</div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="./assets/script/moment.js"></script>
-    <script src="./assets/script/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./assets/script/moment.js"></script>
+  <script src="./assets/script/script.js"></script>
 
 </body>
 

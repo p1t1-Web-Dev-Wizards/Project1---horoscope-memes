@@ -11,6 +11,13 @@ let submitButton = document.querySelector('#submit');
 let saveButton = document.querySelector('#save');
 let loadSelectedEntrydocument =document.querySelector(`#load-selected-entry`);
 
+// parallax
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.parallax');
+  var instances = M.Parallax.init(elems, {});
+});
+
+
 submitButton.addEventListener('click', handleSearchFormSubmit)
 saveButton.addEventListener('click', saveResults)
 loadSelectedEntrydocument.addEventListener(`click`, loadSelectedEntry)
