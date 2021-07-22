@@ -8,6 +8,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 let submitButton = document.querySelector('#submit');
 
+// parallax
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.parallax');
+  var instances = M.Parallax.init(elems, {});
+});
+
+
 submitButton.addEventListener('click', handleSearchFormSubmit)
 
 // var inputForm = document.querySelector('#search-form');
