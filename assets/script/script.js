@@ -2,9 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
    var elems = document.querySelectorAll('select');
    var instances = M.FormSelect.init(elems, {});
    loadSavedEntriesOnPageLoad()
-   M.AutoInit();
    console.log(elems);
-   document.querySelector(`#main-menu-center`).scrollIntoView({block:`center`});
+   document.querySelector(`.main-menu-center`).scrollIntoView({block:`center`});
  });
 
 
@@ -12,12 +11,19 @@ let submitButton = document.querySelector('#submit');
 let saveButton = document.querySelector('#save');
 let loadSelectedEntryButton = document.querySelector(`#load-selected-entry`);
 let deleteSelectedEntryButton = document.querySelector(`#delete-selected-entry`);
-let deleteAllEntriesButton = document.querySelector(`#delete-all-saved-entry`);
+let deleteAllEntriesButton = document.querySelector(`#delete-all-confirm`);
 
 // parallax
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.parallax');
   var instances = M.Parallax.init(elems, {});
+});
+
+// modal
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.modal');
+  var instances = M.Modal.init(elems, {});
 });
 
 
@@ -216,7 +222,7 @@ function saveResultsToLocalStorage(saveObjectKey, saveObject) {
 
 
 function addSavedEntryToOptions(saveObjectKey) {
-  console.log(`%crenderSavedEntryButton FIRED`, `color:limegreen`);
+  console.log(`%caddSavedEntryToOptions FIRED`, `color:limegreen`);
   let savesList = document.querySelector(`#previous-saves`);
   console.log(savesList);
     let optionEl = document.createElement(`option`);
@@ -241,6 +247,8 @@ function loadSavedEntriesOnPageLoad() {
     }
     addSavedEntryToOptions(saveObjectKey);
   }
+  var elems = document.querySelectorAll('select');
+  var instances = M.FormSelect.init(elems, {});
 }
 
 //control Function
@@ -293,5 +301,6 @@ function deleteAllEntries () {
       localStorage.removeItem(saveObjectKey);
       document.getElementById(`${saveObjectKey}`).remove();
     }
-    M.AutoInit();
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, {});
   }

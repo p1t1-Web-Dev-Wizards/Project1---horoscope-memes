@@ -26,13 +26,13 @@
         <div class="container logo-image">
           <img src="./assets/images/Star_Spangled_Memer_Logo-removebg-preview.png" class="center" width="200"
             height="200">
-          <h2 id="main-menu-center">Find your daily horoscope and meme!</h2>
+          <h2>Find your daily horoscope and meme!</h2>
         </div>
       </div>
     </section>
 
     <div class="row" id="input-fields">
-      <div class="input-field col s6" id="user-input">
+      <div class="input-field col s6 main-menu-center" id="user-input">
         <form id="search-form" class="form w-100 col s12">
           <select id="day-input" class="form-input w-100">
             <option value="" disabled selected>Select a day...</option>
@@ -72,7 +72,7 @@
       </select>
       <a class="btn waves-effect waves-light" id="load-selected-entry">Load Selected Entry</a>
       <a class="btn waves-effect waves-light orange lighten-2" id="delete-selected-entry">Delete Selected Entry</a>
-      <a class="btn waves-effect waves-light red lighten-2" id="delete-all-saved-entry">Delete All Selected Entries</a>
+      <a class="btn waves-effect waves-light red lighten-2 modal-trigger" href="#modal1">Delete All Result Entries</a>
       <!-- <label>Materialize Select</label> -->
     </div>
   </div>
@@ -161,6 +161,21 @@
           <i class="material-icons">add</i>
         </a>
       </div>
+    </div>
+  </div>
+
+  <!-- Modal Trigger -->
+  <!-- <a class="modal-trigger" id="delete-all-confirm" href="#modal1">Modal</a> -->
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content red lighten-1">
+      <h4>Are you sure you want to delete ALL saved result entries?</h4>
+      <p>Click below to confirm.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn">Cancel</a>
+      <a href="#!" class="waves-effect modal-close waves-light red btn" id="delete-all-confirm">Proceed</a>
     </div>
   </div>
 
