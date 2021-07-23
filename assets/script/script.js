@@ -286,21 +286,23 @@ function deleteEntry () {
     localStorage.removeItem(saveObjectKey);
     let saveObjectEl = document.getElementById(`${saveObjectKey}`);
     saveObjectEl.remove()
-    M.AutoInit();
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, {});
   M.toast({html: `Saved entry "${saveObjectKey}" has been deleted.`, classes: 'orange'})
 }
 
 function deleteAllEntries () {
   console.log(`deleteAllEntries FIRED`);
-    for(let saveObjectKey in localStorage){
-      console.log(`${saveObjectKey}: ${localStorage.getItem(saveObjectKey)}`);
-      if(localStorage.getItem(saveObjectKey) === null){
-          console.log(`ENTRY IS NULL`)
-        continue;
+      for(let saveObjectKey in localStorage){
+        console.log(`${saveObjectKey}: ${localStorage.getItem(saveObjectKey)}`);
+        if(localStorage.getItem(saveObjectKey) === null){
+            console.log(`ENTRY IS NULL`)
+          continue;
+        }
+        localStorage.removeItem(saveObjectKey);
+        document.getElementById(`${saveObjectKey}`).remove();
       }
-      localStorage.removeItem(saveObjectKey);
-      document.getElementById(`${saveObjectKey}`).remove();
-    }
     var elems = document.querySelectorAll('select');
     var instances = M.FormSelect.init(elems, {});
+  M.toast({html: `All saved entries have been cleared.`, classes: 'red lighten-1'})
   }
