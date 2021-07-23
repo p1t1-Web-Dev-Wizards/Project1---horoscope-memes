@@ -63,3 +63,16 @@ html {
 .hidden {
     display: none;
 }
+
+#load-selected-entry {
+    /* display: block; */
+    margin:5px;
+}
+
+#delete-selected-entry {
+    margin:5px;
+}
+
+#delete-all-saved-entry {
+    margin:5px;
+}

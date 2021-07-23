@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 let submitButton = document.querySelector('#submit');
 let saveButton = document.querySelector('#save');
-let loadSelectedEntrydocument =document.querySelector(`#load-selected-entry`);
+let loadSelectedEntryButton = document.querySelector(`#load-selected-entry`);
+let deleteSelectedEntryButton = document.querySelector(`#delete-selected-entry`);
+let deleteAllEntriesButton = document.querySelector(`#delete-all-saved-entry`);
 
 // parallax
 document.addEventListener('DOMContentLoaded', function() {
@@ -19,9 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-submitButton.addEventListener('click', handleSearchFormSubmit)
-saveButton.addEventListener('click', saveResults)
-loadSelectedEntrydocument.addEventListener(`click`, loadSelectedEntry)
+submitButton.addEventListener('click', handleSearchFormSubmit);
+saveButton.addEventListener('click', saveResults);
+loadSelectedEntryButton.addEventListener(`click`, loadSelectedEntry);
+deleteSelectedEntryButton.addEventListener(`click`, deleteEntry);
+deleteAllEntriesButton.addEventListener(`click`, deleteAllEntries);
+
 
 // var inputForm = document.querySelector('#search-form');
 // inputForm.addEventListener('submit', handleSearchFormSubmit);
@@ -218,6 +223,8 @@ function addSavedEntryToOptions(saveObjectKey) {
       console.log(optionEl);
     optionEl.value = saveObjectKey;
       console.log(optionEl.value);
+    optionEl.id = saveObjectKey;
+    console.log(optionEl.id);
     optionEl.textContent = saveObjectKey;
      console.log(optionEl.textContent);
     savesList.appendChild(optionEl);
@@ -239,12 +246,12 @@ function loadSavedEntriesOnPageLoad() {
 //control Function
 function loadSelectedEntry() {
   console.log(`loadSelectedEntry FIRED`)
-  let saveObject = retrieveSelectedSaveFromLocalStorage();
+  let saveObjectKey = document.querySelector('#previous-saves').value;
+  let saveObject = retrieveSelectedSaveFromLocalStorage(saveObjectKey);
   renderSavedResult(saveObject);
 }
 
-function retrieveSelectedSaveFromLocalStorage() {
-    let saveObjectKey = document.querySelector('#previous-saves').value;
+function retrieveSelectedSaveFromLocalStorage(saveObjectKey) {
     let saveObject = JSON.parse(localStorage.getItem(saveObjectKey));
   return saveObject;
 }
@@ -264,3 +271,27 @@ async function renderSavedResult(saveObject) {
     await showResultsTransition();
     document.querySelector(`#save-result-card`).style.display = `none`
 }
+
+function deleteEntry () {
+  console.log(`deleteEntry FIRED`);
+    let saveObjectKey = document.querySelector('#previous-saves').value;
+    localStorage.removeItem(saveObjectKey);
+    let saveObjectEl = document.getElementById(`${saveObjectKey}`);
+    saveObjectEl.remove()
+    M.AutoInit();
+  M.toast({html: `Saved entry "${saveObjectKey}" has been deleted.`, classes: 'orange'})
+}
+
+function deleteAllEntries () {
+  console.log(`deleteAllEntries FIRED`);
+    for(let saveObjectKey in localStorage){
+      console.log(`${saveObjectKey}: ${localStorage.getItem(saveObjectKey)}`);
+      if(localStorage.getItem(saveObjectKey) === null){
+          console.log(`ENTRY IS NULL`)
+        continue;
+      }
+      localStorage.removeItem(saveObjectKey);
+      document.getElementById(`${saveObjectKey}`).remove();
+    }
+    M.AutoInit();
+  }

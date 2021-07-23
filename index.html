@@ -36,9 +36,9 @@
         <form id="search-form" class="form w-100 col s12">
           <select id="day-input" class="form-input w-100">
             <option value="" disabled selected>Select a day...</option>
+            <option value="yesterday">Yesterday</option>
             <option value="today">Today</option>
             <option value="tomorrow">Tomorrow</option>
-            <option value="yesterday">Yesterday</option>
           </select>
         </form>
       </div>
@@ -71,6 +71,8 @@
         <!-- saved horoscope links go here -->
       </select>
       <a class="btn waves-effect waves-light" id="load-selected-entry">Load Selected Entry</a>
+      <a class="btn waves-effect waves-light orange lighten-2" id="delete-selected-entry">Delete Selected Entry</a>
+      <a class="btn waves-effect waves-light red lighten-2" id="delete-all-saved-entry">Delete All Selected Entries</a>
       <!-- <label>Materialize Select</label> -->
     </div>
   </div>
