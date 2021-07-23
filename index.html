@@ -20,57 +20,59 @@
     <div class="parallax"><img src="./assets/images/pexels-miriam-espacio-2694037.jpg"></div>
   </div>
 
-  <section>
-    <div class=>
-      <div class="container logo-image">
-        <img src="./assets/images/Star_Spangled_Memer_Logo-removebg-preview.png" class="center" width="200"
-          height="200">
-        <h2>Find your daily horoscope and meme!</h2>
+  <div id="main-menu-container" class="container">
+    <section>
+      <div class=>
+        <div class="container logo-image">
+          <img src="./assets/images/Star_Spangled_Memer_Logo-removebg-preview.png" class="center" width="200"
+            height="200">
+          <h2 id="main-menu-center">Find your daily horoscope and meme!</h2>
+        </div>
+      </div>
+    </section>
+
+    <div class="row" id="input-fields">
+      <div class="input-field col s6" id="user-input">
+        <form id="search-form" class="form w-100 col s12">
+          <select id="day-input" class="form-input w-100">
+            <option value="" disabled selected>Select a day...</option>
+            <option value="today">Today</option>
+            <option value="tomorrow">Tomorrow</option>
+            <option value="yesterday">Yesterday</option>
+          </select>
+        </form>
+      </div>
+      <div class="input-field col s6" id="user-input">
+        <select id="sign-input" class="form-input w-100 col s12 icons">
+          <option value="" disabled selected>Choose your sign...</option>
+          <option value="Capricorn" data-icon="./assets/images/capricorn.png">Capricorn</option>
+          <option value="Aquarius" data-icon="./assets/images/aquarius.jpg">Aquarius</option>
+          <option value="Pisces" data-icon="./assets/images/pisces.png">Pisces</option>
+          <option value="Aries" data-icon="./assets/images/aries.png">Aries</option>
+          <option value="Taurus" data-icon="./assets/images/taurus.png">Taurus</option>
+          <option value="Gemini" data-icon="./assets/images/gemini.png">Gemini</option>
+          <option value="Cancer" data-icon="./assets/images/cancer.png">Cancer</option>
+          <option value="Leo" data-icon="./assets/images/leo.png">Leo</option>
+          <option value="Virgo" data-icon="./assets/images/virgo.png">Virgo</option>
+          <option value="Libra" data-icon="./assets/images/libra.png">Libra</option>
+          <option value="Scorpio" data-icon="./assets/images/scorpio.png">Scorpio</option>
+          <option value="Sagittarius" data-icon="./assets/images/sagittarius.png">Sagittarius</option>
+        </select>
       </div>
     </div>
-  </section>
 
-  <div class="row" id="input-fields">
-    <div class="input-field col s6" id="user-input">
-      <form id="search-form" class="form w-100 col s12">
-        <select id="day-input" class="form-input w-100">
-          <option value="" disabled selected>Select a day...</option>
-          <option value="today">Today</option>
-          <option value="tomorrow">Tomorrow</option>
-          <option value="yesterday">Yesterday</option>
-        </select>
-      </form>
-    </div>
-    <div class="input-field col s6" id="user-input">
-      <select id="sign-input" class="form-input w-100 col s12 icons">
-        <option value="" disabled selected>Choose your sign...</option>
-        <option value="Capricorn" data-icon="./assets/images/capricorn.png">Capricorn</option>
-        <option value="Aquarius" data-icon="./assets/images/aquarius.jpg">Aquarius</option>
-        <option value="Pisces" data-icon="./assets/images/pisces.png">Pisces</option>
-        <option value="Aries" data-icon="./assets/images/aries.png">Aries</option>
-        <option value="Taurus" data-icon="./assets/images/taurus.png">Taurus</option>
-        <option value="Gemini" data-icon="./assets/images/gemini.png">Gemini</option>
-        <option value="Cancer" data-icon="./assets/images/cancer.png">Cancer</option>
-        <option value="Leo" data-icon="./assets/images/leo.png">Leo</option>
-        <option value="Virgo" data-icon="./assets/images/virgo.png">Virgo</option>
-        <option value="Libra" data-icon="./assets/images/libra.png">Libra</option>
-        <option value="Scorpio" data-icon="./assets/images/scorpio.png">Scorpio</option>
-        <option value="Sagittarius" data-icon="./assets/images/sagittarius.png">Sagittarius</option>
+    <a class="center btn waves-effect waves-light" id="submit" name="action" href="#save">Submit
+      <i class="material-icons right"></i>
+    </a>
+    <p class="center">**OR**</p>
+    <div class="input-field col s6 center">
+      <select id="previous-saves">
+        <option value="" disabled selected>Choose a previous saved horoscope to load</option>
+        <!-- saved horoscope links go here -->
       </select>
+      <a class="btn waves-effect waves-light" id="load-selected-entry">Load Selected Entry</a>
+      <!-- <label>Materialize Select</label> -->
     </div>
-  </div>
-
-  <a class="center btn waves-effect waves-light" id="submit" name="action" href="#save">Submit
-    <i class="material-icons right"></i>
-  </a>
-  <p class="center">**OR**</p>
-  <div class="input-field col s6 center">
-    <select id="previous-saves">
-      <option value="" disabled selected>Choose a previous saved horoscope to load</option>
-      <!-- saved horoscope links go here -->
-    </select>
-    <a class="btn waves-effect waves-light" id="load-selected-entry">Load Selected Entry</a>
-    <!-- <label>Materialize Select</label> -->
   </div>
 
   <!-- *******BEGIN PRELOADER SPINNER******* -->
