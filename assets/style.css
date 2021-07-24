@@ -95,3 +95,27 @@ html {
 #delete-all-saved-entry {
     margin:5px;
 }
+
+#daily-horoscope {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+#mood-text {
+    font-weight: 600;
+}
+
+#mood-gif {
+    height: 250px;
+    width: 300px;
+}
+
+#sign-banner{
+    font-weight: 600;
+}
+
+#horoscope-key-label {
+    color: #5e35b1;
+    font-weight: 600;
+    font-size: larger;
+}
