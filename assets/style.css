@@ -125,7 +125,24 @@ html {
     margin:5px;
 }
 
+#delete-selected-entry:hover {
+    margin:5px;
+    background-color:#FBC02D;
+}
+
 #delete-all-saved-entry {
+    margin:5px;
+}
+
+.modal-trigger {
+    margin:5px;
+}
+.modal-trigger:hover {
+    margin:5px;
+    background-color: red; 
+}
+
+#delete-all-saved-entry:hover {
     margin:5px;
 }
 
