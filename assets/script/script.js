@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
    loadSavedEntriesOnPageLoad()
    M.AutoInit();
    console.log(elems);
+   document.querySelector(`#main-menu-center`).scrollIntoView({block:`center`});
  });
 
 
