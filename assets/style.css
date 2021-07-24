@@ -111,6 +111,10 @@ html {
     background-color: #c5491b;
 }
 
+#horoscope-key {
+    color: #ddd291
+}
+
 #horoscope-key-label {
     color: #ddd291;
     font-weight: 600;
