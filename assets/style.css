@@ -1,3 +1,40 @@
+:root {
+    background-color: rgba(16,34,57,255);
+    color: #ddd291;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+    font-size: 30px;
+    font-weight: bolder;
+    background-color: rgba(16,34,57,255);
+    color: #ddd291;
+}
+
+.select-wrapper input.select-dropdown {
+    color: #ddd291;
+    /* border-bottom: none; */
+    border-radius: 10px;
+    border: solid 3px #ddd291;
+    outline: none;
+    text-align: center;
+}
+
+.select-wrapper{
+    width: 100%;
+}
+
+.select-wrapper .caret {
+    fill: #ddd291;
+}
+
+.catchphrase {
+    text-align: center;
+}
+
 .center {
     display:block;
     margin-left:auto;
@@ -6,20 +43,34 @@
     text-align: center;
 }
 
+#logo {
+    width: 50%;
+    height: auto;
+    margin-top: 20px;
+}
+
 .container {
     text-align: center;
 }
+
 #input-fields {
     display: flex;
-    padding: 0 15em;
+    padding: 0 20%;
+    color: #ddd291;
 }
 #user-input {
     justify-content: space-between;
     margin-left: 0;
 }
 
+.goocci {
+    background-color: #c5491b;
+    font-size: 1.7em;
+    font-weight: bolder;
+}
+
 body {
-    font-family: 'Handlee', cursive;
+    font-family: 'Zen Loop', cursive;;
 }
 
 #mood {
@@ -36,6 +87,64 @@ html {
     scroll-behavior: smooth;
 }
 
+.preloader-position-wrapper {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+#load-selected-entry {
+    /* display: block; */
+    margin:5px;
+}
+
+#save-result-card {
+   background-color: #193457;
+   border-radius: 5em;
+   box-shadow: 5px 5px 5px black;
+
+}
+
 #save {
-    margin: 20px auto;
+    background-color: #c5491b;
+}
+
+#horoscope-key {
+    color: #ddd291
+}
+
+#horoscope-key-label {
+    color: #ddd291;
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+#delete-selected-entry {
+    margin:5px;
+}
+
+#delete-all-saved-entry {
+    margin:5px;
+}
+
+#daily-horoscope {
+    font-size: 2em;
+    font-weight: 600;
+}
+
+#mood-text {
+    font-weight: 600;
+    font-size: 7em;
+}
+
+#mood-gif {
+    height: 450px;
+    
+}
+
+#sign-banner{
+    font-weight: 600;
+    font-size: 7em;
 }
