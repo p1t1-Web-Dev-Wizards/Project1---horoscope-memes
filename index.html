@@ -61,18 +61,18 @@
         </select>
       </div>
     </div>
-    <a class="center btn waves-effect waves-light" id="submit" name="action" href="#save">Submit
+    <a class="center btn waves-effect waves-light goocci" id="submit" name="action" href="#save">Get Your Horoscope!
       <i class="material-icons right"></i>
     </a>
-    <p class="center">**OR**</p>
+    <h2 class="center">OR</h2>
     <div class="input-field col s6 center">
       <select id="previous-saves">
         <option value="" disabled selected>Choose a previous saved horoscope to load</option>
         <!-- saved horoscope links go here -->
       </select>
-      <a class="btn waves-effect waves-light" id="load-selected-entry">Load Selected Entry</a>
-      <a class="btn waves-effect waves-light orange lighten-2" id="delete-selected-entry">Delete Selected Entry</a>
-      <a class="btn waves-effect waves-light red lighten-2 modal-trigger" href="#modal1">Delete All Result Entries</a>
+      <a class="btn waves-effect waves-light goocci" id="load-selected-entry">Load Selected</a>
+      <a class="btn waves-effect waves-light goocci" id="delete-selected-entry">Delete Selected</a>
+      <a class="btn waves-effect waves-light modal-trigger goocci" href="#modal1">Delete All</a>
       <!-- <label>Materialize Select</label> -->
     </div>
   </div>
@@ -155,9 +155,9 @@
       <div class="col s12">
         <div class="input-field inline">
           <input id="horoscope-key" type="text">
-          <label id="horoscope-key-label" for="horoscope-key">Enter a title to save result</label>
+          <label id="horoscope-key-label" for="horoscope-key">Enter title & Save Result</label>
         </div>
-        <a class="btn-floating btn-large waves-effect waves-light red" id="save">
+        <a class="btn-floating btn-large waves-effect waves-light" id="save">
           <i class="material-icons">add</i>
         </a>
       </div>

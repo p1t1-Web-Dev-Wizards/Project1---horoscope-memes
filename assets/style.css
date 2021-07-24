@@ -16,13 +16,19 @@ html {
 
 .select-wrapper input.select-dropdown {
     color: #ddd291;
-    border-bottom: none;
+    /* border-bottom: none; */
+    border-radius: 10px;
+    border: solid 3px #ddd291;
     outline: none;
     text-align: center;
 }
 
 .select-wrapper{
     width: 100%;
+}
+
+.select-wrapper .caret {
+    fill: #ddd291;
 }
 
 .catchphrase {
@@ -57,6 +63,12 @@ html {
     margin-left: 0;
 }
 
+.goocci {
+    background-color: #c5491b;
+    font-size: 1.7em;
+    font-weight: bolder;
+}
+
 body {
     font-family: 'Zen Loop', cursive;;
 }
@@ -88,6 +100,23 @@ html {
     margin:5px;
 }
 
+#save-result-card {
+   background-color: #193457;
+   border-radius: 5em;
+   box-shadow: 5px 5px 5px black;
+
+}
+
+#save {
+    background-color: #c5491b;
+}
+
+#horoscope-key-label {
+    color: #ddd291;
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
 #delete-selected-entry {
     margin:5px;
 }
@@ -112,10 +141,4 @@ html {
 
 #sign-banner{
     font-weight: 600;
-}
-
-#horoscope-key-label {
-    color: #5e35b1;
-    font-weight: 600;
-    font-size: larger;
 }
