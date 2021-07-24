@@ -130,19 +130,21 @@ html {
 }
 
 #daily-horoscope {
-    font-size: 25px;
+    font-size: 2em;
     font-weight: 600;
 }
 
 #mood-text {
     font-weight: 600;
+    font-size: 7em;
 }
 
 #mood-gif {
-    height: 250px;
-    width: 300px;
+    height: 450px;
+    
 }
 
 #sign-banner{
     font-weight: 600;
+    font-size: 7em;
 }
