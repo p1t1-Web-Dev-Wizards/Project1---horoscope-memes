@@ -1,10 +1,32 @@
 :root {
-    background-color: #5e35b1;
-    color: white;
+    background-color: rgba(16,34,57,255);
+    color: #ddd291;
 }
 
 html {
     scroll-behavior: smooth;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+    font-size: 30px;
+    font-weight: bolder;
+    background-color: rgba(16,34,57,255);
+    color: #ddd291;
+}
+
+.select-wrapper input.select-dropdown {
+    color: #ddd291;
+    border-bottom: none;
+    outline: none;
+    text-align: center;
+}
+
+.select-wrapper{
+    width: 100%;
+}
+
+.catchphrase {
+    text-align: center;
 }
 
 .center {
@@ -15,8 +37,10 @@ html {
     text-align: center;
 }
 
-.logo-image {
-    width: 50%
+#logo {
+    width: 50%;
+    height: auto;
+    margin-top: 20px;
 }
 
 .container {
@@ -25,7 +49,8 @@ html {
 
 #input-fields {
     display: flex;
-    padding: 0 20em;
+    padding: 0 20%;
+    color: #ddd291;
 }
 #user-input {
     justify-content: space-between;
@@ -48,12 +73,6 @@ body {
 
 html {
     scroll-behavior: smooth;
-}
-
-
-#save {
-    /* margin: 20px auto; */
-    /* float:left; */
 }
 
 .preloader-position-wrapper {
