@@ -21,5 +21,5 @@ Integrating a branding scheme of logo, name, color combos, and astrology themes 
 - GIPHY API for gif/meme content
 - aztro API for astrology/horoscope content
 
-![](assets/images/site_demo_1.png)
-![](assets/images/site_demo_2.png)
+![site demo 1](https://user-images.githubusercontent.com/77740560/127049235-4f3a0e5e-afb5-4097-a197-b2bd7b7d4074.PNG)
+![site demo 2](https://user-images.githubusercontent.com/77740560/127049339-7be0863a-95b9-4231-b0bb-a9226d99a4b0.PNG)
